@@ -1,0 +1,25 @@
+package workbook;
+
+public class pg6exam6 {
+
+	public static void main(String[] args) {
+		byte a = 10;
+		byte b = 20;
+		byte c = b;
+		char ch = 'A';
+		ch = '1';
+		float f = 1;
+		long l = ;
+		float f2 = 0.1f;
+		double d = 0.1;
+		boolean result = (float)d;
+		
+		System.out.println("c="+c);
+		System.out.println("ch="+(ch+2));
+		System.out.println("f="+f);
+		System.out.println("l="+l);
+		System.out.println("result="+result);
+		
+	}
+
+}

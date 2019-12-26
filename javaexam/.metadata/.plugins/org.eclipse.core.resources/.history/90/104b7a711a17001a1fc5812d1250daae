@@ -1,0 +1,12 @@
+package workbook;
+
+public class pg5exam4 {
+
+	public static void main(String[] args) {
+		char ch = 'z';
+		System.out.println((int)'z');
+		boolean b = true;
+		System.out.println(b);
+	}
+
+}
