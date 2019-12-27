@@ -20,6 +20,7 @@ public class PreparedSelectTest {
 		Connection con = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
+		
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			con = DriverManager.getConnection(url, user, password);

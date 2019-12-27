@@ -12,7 +12,7 @@ public class BoardDAOTest {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner key = new Scanner(System.in);
-		BoardDAO obj = new BoardDAO();
+		BoardDAOImpl obj = new BoardDAOImpl();
 		System.out.println("********게시글 등록*********");
 		System.out.println("아이디: ");
 		String id = key.next();

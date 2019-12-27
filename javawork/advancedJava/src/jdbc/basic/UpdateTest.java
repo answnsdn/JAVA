@@ -18,6 +18,7 @@ public class UpdateTest {
 		System.out.println("¾ÆÀÌµð : ");
 		String id = key.next();
 		obj.update(boardNum,id);
+		
 	}
 	public void update(int boardNum, String id) {
 		String url = "jdbc:oracle:thin:@127.0.0.1:1521:xe";

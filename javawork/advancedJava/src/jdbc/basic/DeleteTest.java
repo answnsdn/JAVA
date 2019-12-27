@@ -21,6 +21,7 @@ public class DeleteTest {
 		String url = "jdbc:oracle:thin:@127.0.0.65:1521:xe";
 		String user = "scott";
 		String password = "tiger";
+		
 		Connection con = null;
 		PreparedStatement stmt = null;
 		
