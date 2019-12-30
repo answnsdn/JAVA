@@ -70,6 +70,7 @@ public class BoardDTO {
 		this.writeDate = writeDate;
 	}
 	public int getHit() {
+		
 		return hit;
 	}
 	public void setHit(int hit) {
