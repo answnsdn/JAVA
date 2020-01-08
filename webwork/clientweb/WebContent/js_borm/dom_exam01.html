@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="EUC-KR">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		function printCount(){
+			num = calc.count.value;
+			price = 12900 * num * 0.9;
+			document.getElementById("result").innerHTML = "<h1>"+price+"</h1>";
+		}
+	</script>
+</head>
+<body>
+
+</body>
+
+		<form name="calc">
+			
+
+			수량:
+			<input type="text" name="count" onkeyup="printCount()">
+		</form>
+		<div id="result"></div>
+</html>

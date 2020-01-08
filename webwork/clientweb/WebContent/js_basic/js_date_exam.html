@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="EUC-KR">
+	<title>Insert title here</title>
+</head>
+<body>
+	<script type="text/javascript">
+		today = new Date();
+		str = today.getHours();
+		
+		if(str>12){
+			document.bgColor="#00ff00";
+		}else{
+			document.bgColor="#ff0000";
+		}
+		
+		day = today.getDay();
+		weekday="";
+		switch (day) {
+		case 0:
+			weekday="일요일";
+			document.write("<img src='../images/jang1.jpg'/>");
+			document.bgColor="yellow";
+			break;
+		case 1:
+			weekday="월요일";
+			document.write("<img src='../images/jang2.jpg'/>");
+			break;
+		case 2:
+			weekday="화요일";
+			document.write("<img src='../images/jang3.jpg'/>");
+			break;
+		case 3:
+			weekday="수요일";
+			document.write("<img src='../images/jang4.jpg'/>");
+			break;
+		case 4:
+			weekday="목요일";
+			document.write("<img src='../images/jang5.jpg'/>");
+			break;
+		case 5:
+			weekday="금요일";
+			document.write("<img src='../images/jang6.jpg'/>");
+			break;
+		case 6:
+			weekday="토요일";
+			document.write("<img src='../images/jang7.jpg'/>");
+			break;
+		}
+		
+	
+	</script>
+</body>
+</html>

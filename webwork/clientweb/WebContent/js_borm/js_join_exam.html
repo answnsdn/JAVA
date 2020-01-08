@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="EUC-KR">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		function printId(){
+			timonid = timon.name.value;
+			if(timonid.length < 4){
+				document.getElementById("result").innerHTML = "4글자 이상의 글자를 입력하시오";
+				document.getElementById("result").style.color = "#ff3838";
+				
+			}else{
+				if(timonid == "java"){
+					document.getElementById("result").innerHTML = "이미 사용중인 아이디입니다.";
+					document.getElementById("result").style.color = "#ff3838";
+				}else{
+					document.getElementById("result").innerHTML = " ";
+					
+				}
+			}
+				
+		}
+	
+	</script>
+</head>
+<body>
+	<form name="timon">
+			<h1>티몬 회원가입</h1><br>
+			<h2>필수항목</h2><br>
+			아이디:
+			<input type="text" name="name" onkeyup="printId()">
+		</form>
+		<div id="result" ></div>
+</body>
+</html>
