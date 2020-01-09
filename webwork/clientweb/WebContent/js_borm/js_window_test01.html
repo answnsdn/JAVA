@@ -24,12 +24,27 @@
 			
 			//mypopup2.document.mypopup.data.value = myform.id.value;
 		}
+		function test_number(){
+			num1 = window.parseInt(myform.num1.value); //value 속성이 = 오른쪽 : getter
+			num2 = window.parseInt(myform.num2.value);
+			window.document.myform.result.value = num1 + num2; //value 속성이 = 왼쪽 : setter
+															   //같은 클래스에서 가져오므로 window.document가 생략 가능
+		}
+		function test_number2(){
+			//alert("isNaN의 결과"+window.isNaN(myform.num1.value));
+			//alert("eval의 결과"+eval(myform.num1.value));
+			data = myform.num1.value;
+			alert("문자열의 길이=>"+data.length);
+			data2 = data.trim();
+			alert("문자열의 길이=>"+data2.length);
+		}
 	</script>
 </head>
 <body>
 	<button onClick="window.alert('경고창')">경고창</button>
 	<button onClick="testConfirm()">확인창</button>
 	<button onClick="test_number()">숫자처리메서드</button>
+	<button onClick="test_number2()">숫자처리메서드2</button>
 	<button onClick="window.close()">닫기</button>
 	
 	<form action="" name="myform">
@@ -41,7 +56,14 @@
 		<br>
 		
 		상세주소 : <input type="text" name="address"><br>
-		<input type="submit" value="SEND">
+		<input type="submit" value="SEND"><br>
+		num1 : <input type="text" name="num1"><br>
+		
+		num2 : <input type="text" name="num2"><br>
+		
+		result : <input type="text" name="result"><br>
+		
+		
 	</form>
 </body>
 </html>

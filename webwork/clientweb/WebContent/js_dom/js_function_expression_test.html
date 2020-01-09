@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="EUC-KR">
+	<title>Insert title here</title>
+	<!-- 페이지가 로딩될때 각각의 버튼에 click 이벤트를 연결
+			- 표현식
+			- 1~4번 버튼까지 모두 id를 정의하고 표현식으로 이벤트 연결
+			- 1~3번 버튼은 익명의 함수를 이용해서 표현식으로 이벤트 연결 
+			- 4번 버튼은 callback으로 이벤트 연결
+				callback 함수명: btntest 
+				-->
+</head>
+<body>
+	<h1>함수의 표현식</h1>
+	<h2>
+		변수 = function 함수명(){<br>
+			//실행할 명령문<br/>
+		}<br/>
+		위와 같이 함수를 표현식으로 정의하고 사용하면 함수의 호이스팅이 발생하지 않는다.
+		또한 =연산자를 이용해서 함수를 변수에 할당
+		이런 경우 정의한 함수명을 사용하지 않고 변수명을 함수명처럼 이용한다.
+		</h2>
+	<script type="text/javascript">
+		
+		
+		myfunc = function (num){
+			if(num>90){
+				alert("성공");
+			}else{
+				alert("실패");
+			}
+		}
+		myfunc2 = function (num){//함수명을 줄 필요가 없다.
+			if(num>90){
+				alert("성공");
+			}else{
+				alert("실패");
+			}
+		}
+		//test(90); - 표현식으로 함수를 정의했기 때문에 함수명 사용불가, 변수명을 이용해야 한다.
+		myfunc(90);
+	
+	</script>
+</body>
+</html>

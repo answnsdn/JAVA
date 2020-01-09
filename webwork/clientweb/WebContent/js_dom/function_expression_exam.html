@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="EUC-KR">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		window.onload = function(){//윈도우가 로딩되면 익명의 함수를 실행
+		//페이지가 로딩되면 btndomtest객체 이벤트를 연결 => btndomtest에 클릭이벤트가 발생되면 domTest함수를 호출할 수 있도록 연결
+		document.getElementById("one").onclick = function(){
+			val = document.myform.one.value;
+			alert(val);
+		}
+		document.getElementById("two").onclick = function(){
+			val = document.myform.two.value;
+			alert(val);
+		}
+		document.getElementById("three").onclick = function(){
+			val = document.myform.three.value;
+			alert(val);
+		}
+		document.getElementById("four").onclick = btntest;
+		}
+		
+		function btntest(){
+			val = document.myform.four.value;
+			alert(val);
+		}
+	</script>
+</head>
+<body>
+	<form name="myform">
+		<input type="button" value="1번버튼" id="one"/>
+		<input type="button" value="2번버튼" id="two"/>
+		<input type="button" value="3번버튼" id="three"/>
+		<input type="button" value="4번버튼" id="four"/>
+	</form>
+</body>
+</html>
