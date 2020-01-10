@@ -1,8 +1,51 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+	
+		function insertP(){
+			newNode = document.createElement("p");
+			textNode=document.createTextNode("newP");
+			newNode.setAttribute("style", "background: yellow");
+			newNode.appendChild(textNode);
+			
+			//2.삽입될 상위 노드 구하기
+			targetNode = document.getElementById("root");
+			//3.target노드에 새롭게 생성할 노드를 추가한다. - 하위 노드로 추가
+			targetNode.appendChild(newNode);
+		}
+		
+		function deleteP(){
+			myform = document.getElementById("root");
+			nodelist = myform.getElementsByTagName("p");
+			myform.removeChild(nodelist[nodelist.length-1]);
+				
+			}
+		
+		function deleteDivAndP(){
+			parentNode = document.getElementById("root");
+			childnodelist = parentNode.childNodes;
+			//hasChildNodes - 하위노드가 있으면 true, 없으면 false
+			size = childnodelist.length;
+			while(parentNode.hasChildNodes()){
+				console.log("삭제완료");
+				parentNode.removeChild(parentNode.lastChild);
+			}
+			
+			/* for(i=0;i<size;i++){
+				parentNode.removeChild(parentNode.lastElementChild);
+			} */
+		}
+			
+			
+			
+		
+	
+	
+	
+	</script>
 </head>
 <body>
 	<div id="layer"></div>
@@ -14,8 +57,9 @@
 		<p style="background: skyblue">line02</p>
 		<p style="background: green;">line03</p>
 		<p style="background: red;">line04</p>
+		
 	</div>
-
+	
 	<hr>
 	<button onclick="insertP()">P태그추가하기</button>
 	<button onclick="deleteP()">P태그삭제하기</button>

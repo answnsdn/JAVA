@@ -7,13 +7,36 @@
 		window.onload = function(){//윈도우가 로딩되면 익명의 함수를 실행
 			//페이지가 로딩되면 btndomtest객체 이벤트를 연결 => btndomtest에 클릭이벤트가 발생되면 domTest함수를 호출할 수 있도록 연결
 			document.getElementById("btndomtest").onclick = domTest;
-			document.getElementById("btninsert").onclick = function(){
-				alert("insert");
-			}
+			document.getElementById("nodetest").onclick = domTest2;
 		}
 		function domTest(){
-			alert("domTest");
+			//div태그 목록을 가져온다. - Nodelist를 반환(배열)
+			//getElementsByTagName은 노드의 구조와 상관없이 해당 태그를 모두 찾는다.
+			nodelist = document.getElementsByTagName("div");
+			alert(nodelist);
+			alert("div노드의 갯수=>"+nodelist.length);
+			for(i=0;i<nodelist.length;i++){//getAttribute는 노드(=엘리먼트,태그)에 정의된 속성의 값을 리턴
+				alert("id속성 =>"+nodelist[i].getAttribute("id"));
+			if(nodelist[i].getAttribute("id")=="domtestbtn"){
+				alert("양식태그");
+				alert(nodelist[i].firstChild.nodeName+","+nodelist[i].firstChild.nodeValue)
+			}
+			}
 		}
+		function domTest2(){
+			myform = document.getElementById("myformId");
+			nodelist = myform.childNodes;
+			alert("자식노드의 개수 =>"+nodelist.length);
+			for(i=0;i<nodelist.length;i++){
+				if(nodelist[i].nodeName=="INPUT"){
+				if(nodelist[i].getAttribute("id")=="imginsert"){
+				alert("노드의 이름 =>"+nodelist[i].nodeName);
+					}
+				}
+			}
+			
+		}
+		
 	</script>
 </head>
 
@@ -23,18 +46,13 @@
 		<div id="mycontent1"><img src="../images/m_garden07.jpg" name="myimg" id="myimagId"
 				alt="이미지파일" /><h3>이미지파일</h3></div>
 		<div id="mycontent2">DOM의 구조를 볼까~~</div>
-		<div id="domtestbtn">
-			<form id="myformId" name="myform">		
-				<input type="button" value="dom구조확인하기"
-					 name="btn" id="btndomtest" />
-				<input type="button" value="노드삽입하기"
-					 name="btn" id="btninsert" />
-				<input type="button" value="이미지노드삽입하기"
-					 name="btn" id="imginsert" />					 
-				<input type="button" value="특정노드전에 삽입하기"
-					 name="btn" id="btninsertbefore" />
-				<input type="button" value="특정노드삭제하기"
-					 name="btn" id="btndelete" />
+		 <!-- 문서 제어시, 띄어쓰기나 공백 또한 노드에 포함된다. -->
+		<div id="domtestbtn"><form id="myformId" name="myform">
+			<input type="button" value="dom구조확인하기"name="btn" id="btndomtest" />
+			<input type="button" value="노드탐색연습" name="btn" id="nodetest" />
+			<input type="button" value="이미지노드삽입하기"name="btn" id="imginsert" />
+			<input type="button" value="특정노드전에 삽입하기" name="btn" id="btninsertbefore" />
+			<input type="button" value="특정노드삭제하기"name="btn" id="btndelete" />
 			</form>
 			
 		</div>
