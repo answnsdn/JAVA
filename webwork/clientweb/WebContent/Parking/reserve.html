@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<!-- 예약페이지 -->
+<html>
+<head>
+	<meta charset="EUC-KR">
+	<title>Insert title here</title>
+	
+</head>
+<body>
+	<!-- 전체 틀 -->
+	<div class="outer">
+		<!-- 메뉴 부분 -->
+		<div class="menu" style="border: 2px solid #2F5597; float: left">주차장 예약</div>
+			<!-- 예약 전체 틀 -->
+		<div class="head" style="border: 2px solid #2F5597; float: left">
+				<!-- 신청정보 테이블-->
+				<div class="parkinfo" style="float: left; border-top: 2px solid #2F5597; border-bottom:2px solid #2F5597;
+											border-left:2px solid #2F5597; border-right:2px solid #2F5597; margin: 10px">
+					<span>주차장정보</span>
+					<form action="">
+					<table border="1">
+						
+						<tr>
+							<td colspan="4">(주차장이름)</td>
+						</tr>
+						<tr>
+							<td>(주소)</td>
+							<td colspan="3"></td>
+							
+						</tr>
+						<tr>
+							<td rowspan="6">운영시간</td>
+							<td rowspan="2">평일</td>
+							<td>오전</td>
+							<td>(오전운영시간)</td>
+						</tr>
+						<tr>
+							<td>오후</td>
+							<td>(오후운영시간)</td>
+						</tr>
+						<tr>
+							<td rowspan="2">주말</td>
+							<td>오전</td>
+							<td>(오전운영시간)</td>
+						</tr>
+						<tr>
+							<td>오후</td>
+							<td>(오후운영시간)</td>
+						</tr>
+						<tr>
+							<td rowspan="2">공휴일</td>
+							<td>오전</td>
+							<td>(오전운영시간)</td>
+						</tr>
+						<tr>
+							<td>오후</td>
+							<td>(오후운영시간)</td>
+						</tr>
+						<tr>
+							<td colspan="4">[이용시 주의사항]</td>
+						</tr>
+						<tr>
+							<td colspan="4">입,출차 시 1회만 적용</td>
+							
+						</tr>
+						<tr>
+							<td colspan="4">[이용방법]</td>
+						
+						</tr>
+						<tr>
+							<td colspan="4">단위시간 요금 선 결제 후 출차시 나머지 결제</td>
+						</tr>
+						<tr>
+							<td colspan="4">[기타 안내사항]</td>
+						</tr>
+						<tr>
+							<td colspan="4">현장상황에 따라 입차가 불가할 수 있습니다.</td>
+						</tr>
+						<tr>
+							<td colspan="4">결제비용의 5%가 포인트로 적립됩니다.(포인트결제 제외)</td>
+						</tr>
+						<tr>
+							<td colspan="4">유의사항 미확인으로 인한 피해는 책임지지 않습니다.</td>
+						</tr>
+						
+					</table>
+					</form>
+				</div>
+				<!-- 예약정보 테이블-->
+				<div id="reserve" style="float: left; border-top: 2px solid #2F5597; border-bottom:2px solid #2F5597;
+											border-left:2px solid #2F5597; border-right:2px solid #2F5597; margin: 10px">
+					<form action="">
+					<table border="1">
+						<tr>
+							<td>이름</td>
+							<td>회원 정보 받아오기</td>
+						</tr>
+						<tr>
+							<td>차량번호</td>
+							<td>
+								<input type="text" name="newcarnum">
+								<input type="button" value="회원정보와동일" name="carnum">
+							</td>
+						</tr>
+						<tr>
+							<td>차량유형</td>
+							<td><input type="radio" value="engine" name="cartype">내연기관
+								<input type="radio" value="electric" name="cartype">전기차
+							</td>
+						</tr>
+						<tr>
+							<td>전기충전기 사용여부</td>
+							<td><input type="radio" value="yes" name="charge">네
+								<input type="radio" value="no" name="charge">아니오</td>
+						</tr>
+						<tr>
+							<td>예약날짜</td>
+							<td>
+								<script type="text/javascript">
+									var today = new Date(); 
+									document.write(today.getFullYear(),"년 ", 
+		               				today.getMonth( )+1,"월 ",today.getDay(),"일"); 
+								</script>
+							</td>
+						</tr>
+						<tr>
+							<td>결제금액</td>
+							<td>주차장 정보 받아오기</td>
+						</tr>
+						<tr>
+							<td colspan="2">이용약관</td>
+							
+						</tr>
+						<tr>
+							<td colspan="2">총칙 1.</td>
+							
+						</tr>
+						<tr>
+							<td><input type="submit" value="예약취소" name="cancelrsv"></td>
+							<td><input type="submit" value="결제하기" name="payment"></td>
+							
+						</tr>
+					
+					</table>
+					</form>
+				</div>
+		</div>
+	
+	</div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!-- 1:1문의 글쓰기 -->
+<html>
+<head>
+	<meta charset="EUC-KR">
+	<title>Insert title here</title>
+</head>
+<body>
+	<div class="outer">
+		<div class="menu"><h2>1:1문의</h2></div>
+		<div class="row">
+			<form action="" enctype="multipart/form-data">
+				<table style="text-align: center; border: 1px solid black ">
+					<thead>
+						<tr>
+							<th colspan="2" style="text-align: center; border: 1px solid black">문의하기</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>분류</td>
+							<td>
+							<select name="type">
+								<option value="find_road">길찾기</option>
+								<option value="parking_lot">주차장</option>
+								<option value="lastmile">라스트마일</option>
+								<option value="community">커뮤니티</option>
+								<option value="other">기타</option>
+							</select>
+							</td>
+						</tr>
+						<tr>
+							<td>글 제목</td>
+							<td><input type="text" class="text-title" placeholder="글 제목" name="writetitle"/></td>
+						</tr>
+						<tr>
+							<td>글 내용</td>
+							<td><textarea class="text-content" placeholder="글 내용" name="writecontent"></textarea></td>
+						</tr>
+						<tr>
+							<td>사진 첨부</td>
+							<td>
+								<input type="file">
+								용량: 5MB 미만
+							</td>
+						</tr>
+					</tbody>
+				</table>	
+				<input type="submit" class="deletebutton" value="취소" />
+				<input type="submit" class="writebutton" value="글등록" />
+			</form>
+		</div>
+	</div>
+</body>
+</html>

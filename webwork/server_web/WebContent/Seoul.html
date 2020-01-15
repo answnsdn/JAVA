@@ -1,0 +1,377 @@
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ko">
+<head>
+<title>서울특별시 주차정보안내시스템</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Access-Control-Allow-Origin" content="*" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="Publisher" content="서울특별시" />
+<meta name="Keywords" content="주차정보안내시스템" />
+<meta name="Description" content="서울시 주차정보안내시스템" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" type="text/css" href="./asset/css/layout_new.css" >
+<script type="text/javascript" src="./asset/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="./asset/js/design.com.js"></script>
+<script type="text/javascript" src="./asset/js/GPS.js"></script>
+
+<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=42fc5876bf7384b53bd4eb2c882f7d4c&amp;libraries=services,clusterer,drawing" type="text/javascript"></script>
+<!-- 서울 GNB 스크립트 START -->
+<script type="text/javascript" src="//www.seoul.go.kr/seoulgnb/gnb.js"></script>
+<script type="text/javascript">
+    window.onload = function() 
+    {
+        Yjs.Gnb.init('G143', 'seoul-common-gnb');
+    };
+</script>
+<!-- 서울 GNB 스크립트 END -->
+
+</head>
+<body>
+	<div id="skipNav" >
+        <a href="#input_search">목적지검색 바로가기</a>
+        <a href="#lnbTab">주 메뉴 바로가기</a>
+    </div>
+    
+    <div class="wrap">
+    	<div id='seoul-common-gnb'></div>
+    	<div class="header">
+            <a href="http://parking.seoul.go.kr" title="주차정보안내시스템" class="logo">서울특별시 주차정보안내시스템</a>
+        </div>
+        <div class="mobile-header">
+        	<a href="http://parking.seoul.go.kr" title="모바일주차정보안내시스템"><img src="http://seoul.go.kr/seoulgnb/images/seoul-logo-mobile.png" alt="모바일주차정보로고">모바일주차정보로고</a>
+        	<a href="http://parking.seoul.go.kr">서울특별시 주차정보안내시스템</a>
+        </div>
+        <ul class="mobile-gnb">
+
+        	<li><a href="#" class="on" name="mobileSearchParkingBtn"><span>주차장검색</span></a></li>
+        	<li><a href="#" name="mobileComunityBtn"><span>커뮤니티</span></a></li>
+        	<li><a href="#" name="mobileDeclarationBtn"><span>불편신고</span></a></li>
+        </ul>
+	    <div class="container">
+            <div class="section_search">
+                <div class="search_inner">
+                    <div class="tab" id="lnbTab">
+                        <ul>
+                            <li class="cate1"><a href="javascript:showMap();" title="목적지검색" class="on">목적지검색</a></li>
+                            <li class="cate2"><a href="javascript:showFaQ();" title="커뮤니티">커뮤니티</a></li>
+                            <li class="cate3"><a href="javascript:call120();" title="불편신고">불편신고</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="opt">
+                        <div class="gubun">
+                            <input type="radio" title="목적지검색" name="search_gubun" id="gubun1" value="inpBox1" /><label for="gubun1">목적지검색</label>
+                            <input type="radio" title="주차장검색" name="search_gubun" id="gubun2" value="inpBox2" checked="checked" /><label for="gubun2">주차장검색</label>
+                            <a href="#none" class="list_view">목록보기</a>
+                            <a href="#none" class="list_hide">목록닫기</a>
+                        </div>
+
+                        <div class="keyword" id="inpBox1" style="display:none">
+                            <label for="input_search" class="i_label op1">목적지(지번, 건물명, 새주소, 지하철)검색</label>
+                            <input type="text" title="검색어입력" name="input_search" id="input_search" value="" class="i_text inp_sty1" style="width:246px" />
+                            <a id="keyword_search" href="#" class="btn_search">주차위치검색</a>
+                        </div>
+
+                        <div class="keyword" id="inpBox2">
+                            <div class="select_design region_gu">
+                                <a href="#" class="val" title="구 선택">전체</a>
+                                <ul class="select_list">
+                                	
+                                    <li><a href="#">전체			</a></li>
+                                    <li><a href="#">강남구		</a></li>
+                                    <li><a href="#">강동구		</a></li>
+                                    <li><a href="#">강북구		</a></li>
+                                    <li><a href="#">강서구		</a></li>
+                                    <li><a href="#">관악구		</a></li>
+                                    <li><a href="#">광진구		</a></li>
+                                    <li><a href="#">구로구		</a></li>
+                                    <li><a href="#">금천구		</a></li>
+                                    <li><a href="#">노원구		</a></li>
+                                    <li><a href="#">도봉구		</a></li>
+                                    <li><a href="#">동대문구	</a></li>
+                                    <li><a href="#">동작구		</a></li>
+                                    <li><a href="#">마포구		</a></li>
+                                    <li><a href="#">서대문구	</a></li>
+                                    <li><a href="#">서초구		</a></li>
+                                    <li><a href="#">성동구		</a></li>
+                                    <li><a href="#">성북구		</a></li>
+                                    <li><a href="#">송파구		</a></li>
+                                    <li><a href="#">양천구		</a></li>
+                                    <li><a href="#">영등포구	</a></li>
+                                    <li><a href="#">용산구		</a></li>
+                                    <li><a href="#">은평구		</a></li>
+                                    <li><a href="#">종로구		</a></li>
+                                    <li><a href="#">중구			</a></li>
+                                    <li><a href="#">중랑구		</a></li> 
+                                </ul>
+                            </div>
+
+                            <div class="select_design region_dong">
+                                <a href="#" class="val" title="동 선택">전체</a>
+                                <ul class="select_list">
+                                    
+                                </ul>
+                            </div>
+
+                            <label for="input_search2" class="i_label op2">주차장검색</label>
+                            <input type="text" title="검색어입력" name="input_search2" id="input_search2" value="" class="i_text inp_sty1" style="width:81px" />
+                            <a id="parking_search" href="#" class="btn_search">주차위치검색</a>
+                        </div>
+                    </div>
+                </div><!--// search_inner END -->
+
+                
+                <div class="search_list type1">
+                    <p class="count">검색결과 : <strong id="lo_search_size">0건</strong></p>
+                    <ul id="lo_search_view" class="result">
+                        
+                    </ul>
+                </div>
+
+                
+                <div class="search_list type2" >
+                    <p class="count">검색결과 : <strong id="pk_search_size">0건</strong></p>
+                    <ul id="pk_search_view" class="result">
+                        
+                    </ul>
+                </div>
+
+                
+                <div class="btm_info type1">
+                    <div class="paging">
+                        <div class="inner">
+                            <a href="#" class="first">첫 페이지</a>
+                            <a href="#" class="prev">이전 페이지</a>
+                            <span id="lo_page_index">
+                                <a href="#" class="on">1</a>
+                            </span>
+                            <a href="#" class="next">다음 페이지</a>
+                            <a href="#" class="last">마지막 페이지</a>
+                        </div>
+                    </div>
+
+                    <div class="banner">
+                        <a href="javascript:popUp('NightOpen.do','nightOpenPop', 800, 600)"><img src="./asset/images/bn.jpg" alt="야간개방 부설주차장 신청! 서울시는 시민들의 주차난 해소를 위해 부설주차장의 야간개방을 지원합니다." /></a>
+                    </div>
+                </div>
+
+                
+                <div class="btm_info type2" style="height: 40px;">
+                    <div class="paging">
+                        <div class="inner">
+                            <a href="#" class="first">첫 페이지</a>
+                            <a href="#" class="prev">이전 페이지</a>
+                            <span id="pk_page_index">
+                                <a href="#" class="on">1</a>
+                            </span>
+                            <a href="#" class="next">다음 페이지</a>
+                            <a href="#" class="last">마지막 페이지</a>
+                        </div>
+                    </div>
+
+                    <div class="banner">
+                        <a href="javascript:popUp('NightOpen.do','nightOpenPop', 800, 600)"><img src="./asset/images/bn.jpg" alt="야간개방 부설주차장 신청! 서울시는 시민들의 주차난 해소를 위해 부설주차장의 야간개방을 지원합니다." /></a>
+                    </div>
+                </div>
+                
+            </div><!--// section_search END -->
+	
+            <div class="section_content">
+                <div class="content_box">
+                    <div id="map_div">
+                        
+                    </div>
+
+                    <div id="faq_div" style="z-index:9; background:#fff; display:none" class="cont_area">
+                        <div id="board_view" class="community">
+                            
+                        </div>
+                    </div>
+
+                    <div id="div_120" style="z-index:9; display:none" class="cont_area">
+                        <div  id="dasan_view" class="dasan">
+                            
+                        </div>
+                    </div>
+                </div><!--// content_box END -->
+            </div><!--// section_content END -->
+        </div><!--// container END -->
+	    
+	    <div class="footer">
+            <div class="f_logo">ISEOULU</div>
+            <div class="copyright">
+                <p class="address">
+	                <span class="txt1">서울특별시청 : 04524 서울특별시 중구 세종대로 110</span>
+	                <span class="txt2">전화번호 : <em>다산콜센터 120</em></span>
+	                <span class="txt3">주차계획과 주차계획팀 : <em>02-2133-2356</em></span>
+                </p>
+                <p class="cuation">본 홈페이지의 모든 콘텐츠 및 정보는 저작권법의 보호를 받는 바, 무단 연계, 전재, 복사, 배포 등은 법적제재를 받을 수 있습니다.</p>
+            </div>
+            
+            <!-- NHN ACE : [주차정보안내시스템] 메인 하단 300*100 태그 START-->
+            <div class="copyright2">
+			<script type='text/javascript'>
+			<!--//<![CDATA[
+			   var m3_u = (location.protocol=='https:'?'https://delivery.acecounter.com/delivery/www/delivery/ajs.php':'http://delivery.acecounter.com/delivery/www/delivery/ajs.php');
+			   var m3_r = Math.floor(Math.random()*99999999999);
+			   if (!document.MAX_used) document.MAX_used = ',';
+			   document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+			   document.write ("?zoneid=472");
+			   document.write ('&amp;cb=' + m3_r);
+			   if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+			   document.write (document.charset ? '&amp;charset='+document.charset : (document.characterSet ? '&amp;charset='+document.characterSet : ''));
+			   document.write ("&amp;loc=" + escape(window.location));
+			   if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+			   if (document.context) document.write ("&context=" + escape(document.context));
+			   if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+			   document.write ("'><\/scr"+"ipt>");
+			//]]>-->
+			</script><noscript><a href='http://delivery.acecounter.com/delivery/www/delivery/ck.php?n=ef575e88&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'>
+			<img src='http://delivery.acecounter.com/delivery/www/delivery/avw.php?zoneid=472&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=ef575e88' border='0' alt='' /></a></noscript>
+			</div>
+			<!-- NHN ACE : [주차정보안내시스템] 메인 하단 300*100 태그 END-->
+			
+        </div><!-- // footer END -->
+            
+	</div><!--// wrapper END -->
+	
+	
+	<!-- 주차장 검색 팝업 -->
+	<div class="mobilePopup" name="parkingPopup" style="display:none">
+		<div class="inner">
+			<h3>주차장 검색</h3>
+			<a href="#" class="close" name="popCloseBtn">팝업 닫기</a>
+			<div class="cont">
+				<div class="box_select">
+					<select class="area_gu" name="mobileSelectGu" id="mobileSelectGu" style="">
+						<option value="" selected>전체</option>
+						<option value="강남구">강남구</option>
+						<option value="강동구">강동구</option>
+						<option value="강북구">강북구</option>
+						<option value="강서구">강서구</option>
+						<option value="관악구">관악구</option>
+						<option value="광진구">광진구</option>
+						<option value="구로구">구로구</option>
+						<option value="금천구">금천구</option>
+						<option value="노원구">노원구</option>
+						<option value="도봉구">도봉구</option>
+						<option value="동대문구">동대문구</option>
+						<option value="동작구">동작구</option>
+						<option value="마포구">마포구</option>
+						<option value="서대문구">서대문구</option>
+						<option value="서초구">서초구</option>
+						<option value="성동구">성동구</option>
+						<option value="성북구">성북구</option>
+						<option value="송파구">송파구</option>
+						<option value="양천구">양천구</option>
+						<option value="영등포구">영등포구</option>
+						<option value="용산구">용산구</option>
+						<option value="은평구">은평구</option>
+						<option value="종로구">종로구</option>
+						<option value="중구">중구</option>
+						<option value="중랑구">중랑구</option>
+					</select>
+                    <label for="mobileSelectGu" style="display: none;">모바일구선택</label>
+					
+					<select class="area_dong" name="mobileSelectDong" id="mobileSelectDong">
+						
+					</select>
+                    <label for="mobileSelectDong" style="display: none;">모바일동선택</label>
+				</div>
+				
+				<div class="box_input">
+					<label for="input_search" class="blind">주차장명 검색</label>
+					<input type="text" name="mobileSearchKeyword" id="mobileSearchKeyword" placeholder="주차장명 검색" value="" />
+                    <label for="mobileSearchKeyword" style="display: none;">모바일키워드검색</label>
+					<button type="button" name="mobileGuSearchBtn">검색</button>
+				</div>
+			</div><!-- // cont END -->
+		</div>
+	</div><!-- // popup END -->
+	<!-- 설정 팝 -->
+    <div class="mobilePopup pop_maptype" name="mapTypePopup">
+		<div class="inner">
+			<h3>지도 설정</h3>
+			<a href="#" name="mapTypeClose" class="close">팝업 닫기</a>
+			<div class="cont">
+				<a href="#" class="on" name="mapTypeByMap"><span>지도</span></a>
+				<a href="#" name="mapTypeBySky"><span>스카이뷰</span></a>
+			</div>
+		</div>
+	</div>
+	
+	<!-- 모바일 주차장정보 상세보기 -->
+	<div class="wrap" id="mobileParkingDetailArea">
+        <div id="mobileParkingDetailHeader">
+            <h1><span>주차장상세정보</span></h1>
+            <a href="#" name="mobileParkingDetailBackBtn" class="btn back">뒤로가기</a>
+            <a href="#" name="mobileParkingDetailHomeBtn" class="btn home">메인</a>
+        </div>
+
+        <div id="mobileParkingDetailContents">
+            <div class="boardView">
+                <div class="head">
+                    <span class="tit" name="mobileParkingDetailTitle"></span>
+                    <span class="tel"><a href="#" name="mobileParkingDetailPhone">연락처</a></span>
+                    
+                    <span class="addr2" name="mobileParkingDetailAddress"></span>
+                    <div class="pk" name="mobileParkingDetailCountArea">
+                        <div class="fl">
+                            <span class="stit">전체 주차면</span>
+                            <span class="stxt" name="mobileParkingDetailTotalCnt"></span>
+                        </div>
+                        <div class="fr">
+                            <span class="stit">주차 가능면</span>
+                            <span class="stxt" name="mobileParkingDetailAvailCnt"></span>
+                        </div>
+                    </div>
+                </div><!-- // head END -->
+
+                <div class="infomation">
+                    <dl class="charge" name="mobileParkingDetailChargeInfo">
+                        <dt>요금 정보</dt>
+                        <dd></dd>
+                    </dl>
+
+                    <dl class="time" name="mobileParkingDetailOperationInfo">
+                        <dt>운영 정보</dt>
+                        <dd></dd>
+                    </dl>
+
+                    <dl class="add" name="mobileParkingDetailEtcInfo">
+                        <dt>기타 정보</dt>
+                        <dd></dd>
+                    </dl>
+
+                    <dl class="photo" name="mobileParkingDetailPhotoInfo">
+                        <dt>사진 정보</dt>
+                        <dd></dd>
+                    </dl>
+
+                    <dl class="date" name="mobileParkingDetailRegistDate">
+                        <dt>정보 등록(수정)일자</dt>
+                        <dd></dd>
+                    </dl>
+
+                    <dl class="add" name="mobileParkingDetailCompInfo">
+                        <dt>회사 정보</dt>
+                        <dd></dd>
+                    </dl>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="./asset/js/map.js"></script>
+</html>

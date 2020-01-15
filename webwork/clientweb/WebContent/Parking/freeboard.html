@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="EUC-KR">
+	<title>Insert title here</title>
+</head>
+<body>
+	<div class="outer">
+		<div class="menu" style="border: 2px solid #2F5597;">자유게시판</div>
+		
+		<div class="search" style="border: 2px solid #2F5597;">
+			<form action="">
+				
+				<select name="type">
+					<option value="title">제목</option>
+					<option value="search">내용</option>
+				</select>
+				<input type="text">
+				<input type="button" value="검색" name="search">
+				<input type="button" value="글쓰기" name="write">
+
+			</form>
+		</div>
+		<div class="table">
+			<table border="1">
+				<tr>
+					<th>번호</th>
+					<th>제목</th>
+					<th>조회수</th>
+					<th>등록일</th>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>주차장 사업을 시작하려는데요</td>
+					<td>(조회수)</td>
+					<td>
+						<script type="text/javascript">
+							var today = new Date(); 
+							document.write(today.getFullYear(),"년 ", 
+		               		today.getMonth( )+1,"월 ",today.getDay(),"일"); 
+						</script>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="button">
+			<input type="button" value="뒤로가기" onclick="history.back(-1);">
+			<input type="button" value="앞으로가기" onclick="history.forward(+1);">
+		</div>
+	</div>
+</body>
+</html>

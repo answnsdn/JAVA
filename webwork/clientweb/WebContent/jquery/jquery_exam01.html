@@ -2,7 +2,21 @@
 
 <html>
 	<head>
-		<title>jquery</title> 
+		<title>jquery</title>
+		<link rel="stylesheet" href="../common/css/my_style2.css"/> 
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+	</script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			
+				$(".gardenimg").on("mouseover", function() {
+				$(".gerdenimg p").remove();
+				num = Math.floor((Math.random()*100)+500);
+				data = $("<p>방문자수: "+num+"</p>");
+				$(this).append(data);
+			})
+		})
+	</script>
 	</head> 
 	<body>
 		<div id="header">
