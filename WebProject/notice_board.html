@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="EUC-KR">
+	<title>Insert title here</title>
+</head>
+<body>
+	<div class="outer">
+		<div class="menu" style="border: 2px solid #2F5597;">공지사항</div>
+		<div class="search" style="border: 2px solid #2F5597;">
+			<form action="">
+				
+				<select name="type">
+					<option value="title">제목</option>
+					<option value="search">내용</option>
+				</select>
+				<input type="text">
+				<input type="button" value="검색" name="search">
+				
+			</form>
+		</div>
+		<div class="board">
+			<table border="1">
+				<thead>	
+					<tr style="text-align: center;">
+						<th>번호</th>
+						<th>제목</th>
+						<th>조회수</th>
+						<th>작성일</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>(번호)</td>
+						<td>시스템오픈</td>
+						<td>(조희수)</td>
+						<td>(작성 날짜)</td>
+					</tr>
+					<tr>
+						<td>(번호)</td>
+						<td>시스템오픈</td>
+						
+						<td>(조희수)</td>
+						<td>(작성 날짜)</td>
+					</tr>
+					<tr>
+						<td>(번호)</td>
+						<td>시스템오픈</td>
+						
+						<td>(조희수)</td>
+						<td>(작성날짜)</td>
+					</tr>
+				</tbody>
+			</table>	
+		</div>
+		<div class="button">
+			<input type="button" value="뒤로가기" onclick="history.back(-1);">
+			<input type="button" value="앞으로가기" onclick="history.forward(+1);">
+		</div>
+	</div>
+</body>
+</html>
