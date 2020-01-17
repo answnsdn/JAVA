@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -30,23 +31,14 @@ public class ListServlet extends HttpServlet {
 		DeptDAO dao=new DeptDAO();
 		ArrayList<DeptDTO> deptlist = dao.deptList();
 		
-		//2.응답메세지 출력
+	
+		request.setAttribute("result", deptlist);
+		System.out.println("ListServlet 실행완료");
 		
-		int size = deptlist.size();
-		for(int i=0;i<size;i++) {
-			DeptDTO dept = deptlist.get(i);
-			pw.print("<table border='1' width='500px'>");
-			pw.print("<tr>");
-			pw.print("<td>"+dept.getDeptNo()+"</td>");
-			pw.print("<td>"+dept.getDeptName()+"</td>");
-			pw.print("<td>"+dept.getLoc()+"</td>");
-			pw.print("<td>"+dept.getTel()+"</td>");
-			pw.print("<td>"+dept.getMgr()+"</td>");
-			pw.print("<td><a href='/server_web/dept/delete.do?deptNo="+dept.getDeptNo()+"&info=test'>삭제</a></td>");
-			pw.print("</tr>");
-			pw.print("</table>");
-			
-	}
+		//4. 응답화면으로 요청 재지정
+		RequestDispatcher rd = 
+				request.getRequestDispatcher("/dept/list.jsp");
+		rd.include(request, response);
 	}
 }
 
