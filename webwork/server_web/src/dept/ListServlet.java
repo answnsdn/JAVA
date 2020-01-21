@@ -11,34 +11,34 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class ListServlet
- */
-@WebServlet(name = "list", urlPatterns = { "/list.do" })
+@WebServlet(name = "list", urlPatterns = { "/dept/list.do" })
 public class ListServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
 		request.setCharacterEncoding("euc-kr");
 		response.setContentType("text/html;charset=euc-kr");
-		PrintWriter pw = response.getWriter();
-		//System.out.println("서블릿성공!!!!");
-		//1.비즈니스 메소드 호출
-		DeptDAO dao=new DeptDAO();
-		ArrayList<DeptDTO> deptlist = dao.deptList();
+		PrintWriter pw =  response.getWriter();
+		System.out.println("서블릿");
+		//1.요청정보추출
+		//2.비지니스메소드 호출
+		DeptDAO dao = new DeptDAO();
+		ArrayList<DeptDTO> deptlist = dao.getDeptList();
+		//3. 데이터공유
+		request.setAttribute("deptlist",deptlist);
+		//4. 요청재지정
+		RequestDispatcher rd=
+			request.getRequestDispatcher("/dept/list.jsp");
+		rd.forward(request, response);
 		
-	
-		request.setAttribute("result", deptlist);
-		System.out.println("ListServlet 실행완료");
-		
-		//4. 응답화면으로 요청 재지정
-		RequestDispatcher rd = 
-				request.getRequestDispatcher("/dept/list.jsp");
-		rd.include(request, response);
 	}
+
 }
+
+
+
+
+
+
+
+
+
 
