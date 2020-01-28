@@ -1,0 +1,9 @@
+package di.constructor01;
+public class Test01 {
+	public static void main(String[] args) {
+		Player p = new Player();
+		p.play();
+		System.out.println("세번 굴린 주사위의 합:"+p.getTotalValue());
+	}
+
+}

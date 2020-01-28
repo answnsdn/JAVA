@@ -1,0 +1,6 @@
+package app3;
+//상위 인터페이스 작성
+public abstract class MyBeanStyle {
+	
+	public abstract void hello(String name);
+}

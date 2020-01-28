@@ -1,0 +1,14 @@
+1579667578733	Rename package 'exam01'
+1579668306222	Rename type 'TVUser'
+1579670604100	Copy compilation units
+1579670627408	Copy compilation units
+1579670639106	Delete elements
+1579670660830	Move compilation units
+1579674060998	Delete elements
+1579674070237	Move files
+1579677312733	Delete element
+1579677411349	Extract interface 'AbstractPlayer'
+1579678705077	Delete element
+1579678723262	Extract interface 'AbstractPlayer'
+1579678808586	Delete element
+1579678829657	Extract interface 'AbstractDice'

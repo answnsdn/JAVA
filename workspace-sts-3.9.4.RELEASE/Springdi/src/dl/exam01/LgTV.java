@@ -1,0 +1,34 @@
+package dl.exam01;
+
+public class LgTV implements TV {
+
+	@Override
+	public void powerOn() {
+		// TODO Auto-generated method stub
+		System.out.println("LgTV---Àü¿ø ÄÒ´Ù.");
+	}
+
+	@Override
+	public void powerOff() {
+		// TODO Auto-generated method stub
+		System.out.println("LgTV---Àü¿ø ²ö´Ù.");
+	
+	}
+
+	@Override
+	public void soundUp() {
+		// TODO Auto-generated method stub
+		System.out.println("LgTV---º¼·ıÀ» ³ôÀÎ´Ù.");
+	
+	}
+
+	@Override
+	public void soundDown() {
+		// TODO Auto-generated method stub
+		System.out.println("LgTV---º¼·ıÀ» ³·Ãá´Ù.");
+	
+	}
+
+
+
+}

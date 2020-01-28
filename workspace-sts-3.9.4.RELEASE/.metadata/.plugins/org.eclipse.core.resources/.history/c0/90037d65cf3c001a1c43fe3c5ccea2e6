@@ -1,0 +1,31 @@
+package config;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.context.support.GenericXmlApplicationContext;
+
+import app3.MyBeanStyle;
+
+public class MyBeanTest4 {
+/*
+ * 
+ */
+
+	public static void main(String[] args) {
+		//ApplicationContext보다 기능이 더 많다.
+		AbstractApplicationContext factory = new GenericXmlApplicationContext("/config/bean.xml");
+		MyBeanStyle obj1 = (MyBeanStyle)factory.getBean("myBean1");
+		
+	
+		run(obj1);
+		
+
+	}
+	public static void run(MyBeanSty");
+		obj.hello("현빈");le obj) {
+		System.out.println("********
+		System.out.println("*****************");
+		
+	}
+
+}

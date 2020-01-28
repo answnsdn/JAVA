@@ -1,0 +1,9 @@
+package di.constructor01;
+
+public interface AbstractPlayer {
+
+	void play(AbstractDice d);
+
+	int getTotalValue();
+
+}

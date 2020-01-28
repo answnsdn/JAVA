@@ -1,0 +1,26 @@
+package config;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.GenericXmlApplicationContext;
+
+import app3.MyBeanStyle;
+
+public class MyBeanTest3 {
+/*
+ * 
+ */
+
+	public static void main(String[] args) {
+		ApplicationContext factory = new GenericXmlApplicationContext("/config/bean.xml");
+		MyBeanStyle obj = (MyBeanStyle)factory.getBean("myBean1");//
+		run(obj);
+
+	}
+	public static void run(MyBeanStyle obj) {
+		System.out.println("*****************");
+		obj.hello("Çöºó");
+		System.out.println("*****************");
+		
+	}
+
+}

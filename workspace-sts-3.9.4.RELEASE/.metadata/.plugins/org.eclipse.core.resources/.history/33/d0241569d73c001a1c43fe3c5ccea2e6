@@ -1,0 +1,15 @@
+
+public class InsaImpl implements Insa {
+	MemberDAO dao;
+	@Override
+	public void addUser(MemberDTO user) {
+		dao.add(user);		
+	}
+
+	@Override
+	public MemberDTO getUser(String id) {
+		dao.getUser("id");
+		return null;
+	}
+
+}

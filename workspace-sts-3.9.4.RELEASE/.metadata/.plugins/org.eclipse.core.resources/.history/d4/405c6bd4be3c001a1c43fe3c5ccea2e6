@@ -1,0 +1,8 @@
+package app3;
+
+public class MyBeanStyleA extends MyBeanStyle {
+	public void hello(String name) {
+		System.out.println("æ»≥Á«œººø‰ "+name);
+	}
+
+}
