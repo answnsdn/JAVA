@@ -13,13 +13,15 @@ public class BoardController {
 	@Autowired
 	BoardService service;
 	@RequestMapping("/board/list.do")
-	public ModelAndView boardlist() {
+	public ModelAndView boardlist(String category) {
+		System.out.println("category =>"+category);
 		ModelAndView mav = new ModelAndView();
 		//1. 요청정보 추출
 		//2. 비즈니스 메소드 호출
-		List<BoardVO> list = service.boardList();
+		List<BoardVO> list = service.boardList(category);
 		//3. 데이터 공유 - jsp페이지에서 응답뷰 만들 때 사용
 		mav.addObject("boardlist",list);
+		mav.addObject("category",category);
 		//4. 뷰의 이름을 등록
 		mav.setViewName("board/list");
 		//5. 기본이 forward
@@ -37,6 +39,15 @@ public class BoardController {
 		System.out.println(board);
 		int result = service.insert(board);
 		System.out.println("result");
-		return "redirect:/board/list.do";//글을 등록하고 리스트 화면으로 다시 Redirect
+		return "redirect:/board/list.do?category=all";//글을 등록하고 리스트 화면으로 다시 Redirect
+	}
+	
+	@RequestMapping(value="/board/search.do")
+	public ModelAndView search(String tag,String search) {
+		ModelAndView mav = new ModelAndView();
+		List<BoardVO> list = service.searchList(tag,search);
+		mav.addObject("boardlist",list);
+		mav.setViewName("board/list");
+		return mav;
 	}
 }

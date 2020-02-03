@@ -14,7 +14,20 @@
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script type="text/javascript">
-
+	//자바스크립트에서 자바에서 발생한 데이터를 사용 - EL
+	//${category} => request.getAttribute("category")
+	category="${category}";//컨트롤러 요청하고 response될 때 값을 받아서 세팅
+		
+		$(document).ready(function(){
+			//최초 실행시 category 값이 없으니
+			if(category==""){
+				category="all";	
+			}
+		$("#category").val(category).attr("selected","selected")
+		$("#category").change(function(){//선택한 구분을 넘겨줘서 실행되게 한다
+			location.href="/erp/board/list.do?category="+encodeURI($(this).val());
+		});
+	});
 </script>
 </head>
 <body>

@@ -1,13 +1,13 @@
 package multi.erp.board;
 
 import java.util.List;
-
+//spl문 하나당 한개의 DAO메소드를 만들어야한다.
 public interface BoardDAO {
 	//게시글전체목록조회
 	List<BoardVO> boardList();
 	//게시글등록하기
 	int insert(BoardVO board);
-	List<BoardVO> searchList(String search);
+	List<BoardVO> categorySearch(String category);
 	List<BoardVO> searchList(String tag,String search);
 	List<BoardVO> pageList();
 	//게시글조회
